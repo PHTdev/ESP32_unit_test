@@ -5,7 +5,9 @@ on: [push]
 jobs:
   build:
 
-    runs-on: pht-label-1, self-test1
+    runs-on:
+      - pht-label-1
+      - self-test1
     
     steps:
     - uses: actions/checkout@v3
