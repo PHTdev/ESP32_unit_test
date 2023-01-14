@@ -23,7 +23,7 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
         
     - name: Run PlatformIO
-      run: pio ci path/to/test/test_main.c --lib="/tmp/ESP32_unit_test-main" --board=esp32dev
+      run: pio test --filter "test_main"
       env:
         PLATFORMIO_BUILD_FLAGS: -D SPECIFIC_MACROS -I/extra/inc
       
