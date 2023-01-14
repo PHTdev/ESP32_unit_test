@@ -9,24 +9,11 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: Cache pip
-      uses: actions/cache@v2
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-    - name: Cache PlatformIO
-      uses: actions/cache@v2
-      with:
-        path: ~/.platformio
-        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-        
-    - name: Install PlatformIO
+            
+    - name: Update firmware
       run: |
-        python -m pip install --upgrade pip
-        pip install --upgrade platformio
-        wget https://github.com/PHTdev/ESP32_unit_test/archive/refs/heads/main.zip -O /tmp/ESP32_unit_test-main.zip
+        rm -r tmp
+        git clone https://github.com/PHTdev/ESP32_unit_test.git -O /tmp/ESP32_unit_test-main.zip
         unzip /tmp/ESP32_unit_test-main.zip -d /tmp
         
     - name: Run PlatformIO
