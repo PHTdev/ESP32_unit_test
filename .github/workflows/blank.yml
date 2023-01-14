@@ -26,11 +26,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install --upgrade platformio
-        wget https://github.com/PHTdev/ESP32_unit_test/archive/refs/heads/main.zip -O /tmp/main.zip
-        unzip /tmp/main.zip -d /tmp
+        wget https://github.com/PHTdev/ESP32_unit_test/archive/refs/heads/main.zip -O /tmp/ESP32_unit_test-main.zip
+        unzip /tmp/ESP32_unit_test-main.zip -d /tmp
 
     - name: Run PlatformIO
-      run: pio ci path/to/test/test_main.c --lib="/tmp/main-master" --board=esp32dev
+      run: pio ci path/to/test/test_main.c --lib="/tmp/ESP32_unit_test-main" --board=esp32dev
       env:
         PLATFORMIO_BUILD_FLAGS: -D SPECIFIC_MACROS -I/extra/inc
       
