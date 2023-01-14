@@ -24,10 +24,10 @@ jobs:
         
     - name: Install PlatformIO
       run: |
-        python -m pip install --upgrade pip
-        pip install --upgrade platformio
-        wget https://github.com/PHTdev/ESP32_unit_test/archive/refs/heads/main.zip -O /tmp/ESP32_unit_test-main.zip
-        unzip /tmp/ESP32_unit_test-main.zip -d /tmp
+        rm -r test_git
+        mkdir test_git && cd test_git
+        wget https://github.com/PHTdev/ESP32_unit_test/archive/refs/heads/main.zip -O /test_git/ESP32_unit_test-main.zip
+        unzip /test_git/ESP32_unit_test-main.zip -d /test_git
         
     - name: Run PlatformIO
       run: pio test --filter "test_main"
