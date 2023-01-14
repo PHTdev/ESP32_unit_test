@@ -8,16 +8,16 @@ jobs:
     runs-on: pht-label-1
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Cache pip
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
     - name: Cache PlatformIO
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ~/.platformio
         key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
@@ -25,7 +25,7 @@ jobs:
     - name: Install PlatformIO
       run: |
         wget https://github.com/PHTdev/ESP32_unit_test/archive/refs/heads/main.zip -O /tmp/ESP32_unit_test-main.zip
-        unzip /tmp/ESP32_unit_test-main.zip -d -O /tmp
+        unzip /tmp/ESP32_unit_test-main.zip -d /tmp
         
     - name: Run PlatformIO
       run: pio test --filter "test_main"
