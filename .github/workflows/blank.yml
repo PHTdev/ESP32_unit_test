@@ -1,4 +1,4 @@
-name: PlatformIO CI1
+name: PlatformIO CI
 
 on: [push]
 
@@ -30,7 +30,7 @@ jobs:
         unzip /tmp/ESP32_unit_test-main.zip -d /tmp
 
     - name: Run PlatformIO
-      run: pio ci /tmp/ESP32_unit_test-main/test/test_main.c --lib="/tmp/ESP32_unit_test-main" --board=esp32dev
+      run: pio ci path/to/test/test_main.c --lib="/tmp/ESP32_unit_test-main" --board=esp32dev
       env:
         PLATFORMIO_BUILD_FLAGS: -D SPECIFIC_MACROS -I/extra/inc
       
