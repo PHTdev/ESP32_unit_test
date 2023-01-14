@@ -24,8 +24,8 @@ jobs:
         
     - name: Install PlatformIO
       run: |
-        wget https://github.com/PHTdev/ESP32_unit_test/archive/refs/heads/main.zip -O /tmp/ESP32_unit_test-main.zip
-        unzip /tmp/ESP32_unit_test-main.zip -d /tmp 
+        wget https://github.com/PHTdev/ESP32_unit_test/archive/refs/heads/main.zip -O /home/pht-pc/git_test/ESP32_unit_test-main.zip
+        unzip /home/pht-pc/git_test/ESP32_unit_test-main.zip -d /home/pht-pc/git_test 
                 
     - name: Run PlatformIO
       run: pio test --filter "test_main"
